@@ -38,11 +38,12 @@ Za komunikaciju i koordinaciju između procesa koristi se **zajednička memorija
 - Proces 0 i Proces 1 koriste **zastavice** (`ZASTAVICA[i]`) i varijablu `PRAVO` za kontrolu ulaska u kritični odsječak.
 - Svaki proces pokušava ući u kritični odsječak **5 puta**.
 - Unutar kritičnog odsječka svaki proces pet puta ispisuje status u obliku:
+  
   Proces `<id>`: `(<id>, <k>, <m>)`
 gdje je:
-- `<id>` = ID procesa (0 ili 1)
-- `<k>` = broj ulaska u kritični odsječak (od 1 do 5)
-- `<m>` = broj unutar unutarnje petlje (od 1 do 5)
+  - `<id>` = ID procesa (0 ili 1)
+  - `<k>` = broj ulaska u kritični odsječak (od 1 do 5)
+  - `<m>` = broj unutar unutarnje petlje (od 1 do 5)
 
 - Nakon svakog ulaska i ispisa, proces izlazi iz kritičnog odsječka i daje prednost drugom procesu.
 - Program koristi `signal(SIGINT, cleanup)` kako bi oslobodio zajedničku memoriju ako korisnik prekine rad (`Ctrl + C`).
