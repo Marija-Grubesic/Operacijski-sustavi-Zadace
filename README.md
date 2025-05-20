@@ -5,7 +5,7 @@ Zadaci su implementirani u programskom jeziku **C** i testirani unutar **Debian 
 
 ---
 
-##Zadatak 1 – Dugotrajni posao i rad sa signalima
+## Zadatak 1 – Dugotrajni posao i rad sa signalima
 
 **Opis:**
 
@@ -24,7 +24,7 @@ Program simulira dugotrajni proces koji svakih nekoliko sekundi izračunava kvad
 gcc Zadatak1.c -o program -lm
 ./program
 
-##Zadatak 2 – Višezadaćnost pomoću procesa i Dekkerov algoritam
+## Zadatak 2 – Višezadaćnost pomoću procesa i Dekkerov algoritam
 
 **Opis:**
 
