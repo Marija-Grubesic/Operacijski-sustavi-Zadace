@@ -1,23 +1,32 @@
-# Operacijski sustavi — Zadaće 1 i 2
+# Operacijski sustavi — Zadaće 1, 2 i 3
 
-Rješenja zadataka iz kolegija **Operacijski sustavi**, rađena u jeziku **C** na **Debian 12** unutar **VMware Workstation**.
+Rješenja zadataka iz kolegija **Operacijski sustavi**, rađena u **C jeziku** na **Debian 12 (VMware Workstation)**.
 
 ---
 
 ## Zadatak 1 — Dugotrajni posao i signali
 
-Program svakih 5 sekundi izračunava kvadrat broja i zapisuje ga u `obrada.txt`, dok `status.txt` pamti stanje izvođenja za nastavak.
+Program svakih 5 sekundi računa kvadrat broja i zapisuje ga u `obrada.txt`.  
+Koristi `status.txt` za nastavak izvođenja i reagira na signale:
 
-### Signali:
-- `SIGUSR1`: ispis trenutnog broja
-- `SIGTERM`: spremi stanje i izađi
+- `SIGUSR1`: ispis broja
+- `SIGTERM`: spremi stanje
 - `SIGINT`: prekid bez spremanja
 
 ---
-## Zadatak 2 — Višezadaćnost (Dekkerov algoritam)
 
-Dva procesa (0 i 1) izmjenično ulaze u kritični odsječak pomoću Dekkerovog algoritma i zajedničke memorije (shmget, shmat).
+## Zadatak 2 — Višezadaćnost (Dekker)
 
-Svaki proces 5 puta ulazi u kritični odsječak i ispisuje:
+Dva procesa koriste **Dekkerov algoritam** za siguran ulazak u kritični odsječak.  
+Ispisuju se ulasci u obliku:  
+`Proces <id>: (<id>, <korak>, <petlja>)`
 
-Proces `<id>`: `(<id>, <korak>, <petlja>)`
+---
+
+## Zadatak 3 — Višedretvenost (Lamport)
+
+Više dretvi paralelno pokušava rezervirati stolove.  
+Kritični odsječak zaštićen je **Lamportovim algoritmom**.  
+Stolovi se ispisuju kao niz: `-231-` (brojevi označavaju tko je rezervirao koji stol).
+
+---
