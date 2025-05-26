@@ -5,10 +5,10 @@
 #include <sys/shm.h>
 #include <sys/wait.h>
 
-#define KORACI 5 // koliko puta svaki proces ulazi u kritični odsječak
+#define KORACI 5 
 
-int *ZASTAVICA; // pokazivač na zastavice [0] i [1]
-int *PRAVO;     // pokazivač na varijablu PRAVO
+int *ZASTAVICA; 
+int *PRAVO;    
 int shmid1, shmid2;  // ID zajedničke memorije (dva segmenta)
 
 // Funkcija za čišćenje memorije i izlazak iz programa (poziva se pri CTRL+C)
@@ -51,7 +51,7 @@ void proces(int id) {
 
         // simulacija kritičnog odsječka: 5 puta ispiši
         for (int m = 1; m <= KORACI; m++) {
-            printf("Proces %d: (%d, %d, %d)\n", id, id, k, m);
+            printf("Proces %d: (%d, %d, %d)\n", id, id, k, m); //ispisuje se id, broj ulaska i redni broj
             fflush(stdout);
             sleep(1); // usporavanje da se razlika bolje vidi
         }
@@ -69,6 +69,7 @@ void proces(int id) {
 int main() {
     signal(SIGINT, cleanup); // obrada signala Ctrl+C
 
+    //inicijalizacija zajednicke memorije
     shmid1 = shmget(IPC_PRIVATE, 2 * sizeof(int), IPC_CREAT | 0600);
     ZASTAVICA = shmat(shmid1, NULL, 0);
 
@@ -85,8 +86,7 @@ int main() {
     if (pid == 0) {
         // Dijete – proces 1
         proces(1);
-    } else if (pid > 0) {
-        // Roditelj – proces 0
+    } else if (pid > 0) { //nalazimo se u orginalnom procesu, roditelju
         proces(0);
 
         // čekaj završetak djeteta

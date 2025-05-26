@@ -108,7 +108,5 @@ int main() {
         sleep(5);
     }
 
-    // Ako se prekid dogodio signalom osim SIGINT, status je već zapisan u handleru
-
     return 0;
 }
