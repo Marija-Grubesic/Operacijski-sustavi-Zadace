@@ -1,49 +1,49 @@
-# Operacijski sustavi
+# Operating Systems
 
-Rješenja zadataka iz kolegija **Operacijski sustavi**, rađena u **C jeziku** na **Debian 12 (VMware Workstation)**.
-
----
-
-## Zadatak 1 — Dugotrajni posao i signali
-
-Program svakih 5 sekundi računa kvadrat broja i zapisuje ga u `obrada.txt`.  
-Koristi `status.txt` za nastavak izvođenja i reagira na signale:
-
-- `SIGUSR1`: ispis broja
-- `SIGTERM`: spremi stanje
-- `SIGINT`: prekid bez spremanja
+Solutions to assignments from the **Operating Systems** course, written in **C language**, executed on **Debian 12 (VMware Workstation)**.
 
 ---
 
-## Zadatak 2 — Višezadaćnost (Dekker)
+## Task 1 — Long-running Process and Signals
 
-Dva procesa koriste **Dekkerov algoritam** za siguran ulazak u kritični odsječak.  
-Ispisuju se ulasci u obliku:  
-`Proces <id>: (<id>, <korak>, <petlja>)`
+The program calculates the square of a number every 5 seconds and writes the result to `obrada.txt`.  
+It uses `status.txt` to resume execution and responds to the following signals:
 
----
-
-## Zadatak 3 — Višedretvenost (Lamport)
-
-Više dretvi paralelno pokušava rezervirati stolove.  
-Kritični odsječak zaštićen je **Lamportovim algoritmom**.  
-Stolovi se ispisuju kao niz: `-231-` (brojevi označavaju tko je rezervirao koji stol).
+- `SIGUSR1`: print the current number
+- `SIGTERM`: save the current state
+- `SIGINT`: terminate without saving
 
 ---
 
-## Zadatak 4 — Semafori i vrtuljak
+## Task 2 — Multitasking (Dekker)
 
-Simulacija vrtuljka pomoću **System V semafora**.  
-Posjetitelji čekaju slobodno mjesto, vožnja se pokreće kad su svi spremni, a zatim svi silaze.  
-Sinkronizacija se provodi pomoću 3 semafora: `mjesta`, `spremni`, `voznja_gotova`.
+Two processes use **Dekker's algorithm** to safely enter the critical section.  
+Entries are printed in the following format:  
+`Process <id>: (<id>, <step>, <loop>)`
 
 ---
 
-## Zadatak 5 — Problem pet filozofa (monitor)
+## Task 3 — Multithreading (Lamport)
 
-Pet filozofa dijeli vilice za jelo.  
-Korišten je **monitor** (mutex + uvjetne varijable) za sigurno dijeljenje resursa.  
-Filozofi mogu jesti samo ako su obje vilice slobodne; ispisuje se trenutno stanje:  
-`Stanje filozofa: O X o o O` (`O` – razmišlja, `o` – čeka, `X` – jede)
+Multiple threads attempt to reserve tables in parallel.  
+The critical section is protected using **Lamport’s algorithm**.  
+Tables are displayed as a string like: `-231-` (numbers indicate which thread reserved which table).
+
+---
+
+## Task 4 — Semaphores and Carousel
+
+A carousel simulation using **System V semaphores**.  
+Visitors wait for a free seat, the ride starts when everyone is ready, and then all leave.  
+Synchronization is handled using 3 semaphores: `seats`, `ready`, `ride_done`.
+
+---
+
+## Task 5 — Dining Philosophers Problem (Monitor)
+
+Five philosophers share forks to eat.  
+A **monitor** (mutex + condition variables) is used for safe resource sharing.  
+A philosopher may eat only if both forks are free. The current state is printed as:  
+`Philosopher state: O X o o O` (`O` – thinking, `o` – waiting, `X` – eating)
 
 ---
