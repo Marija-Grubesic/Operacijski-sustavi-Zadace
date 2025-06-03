@@ -1,6 +1,6 @@
 # Operating Systems
 
-Solutions to assignments from the **Operating Systems** course, written in **C language**, executed on **Debian 12 (VMware Workstation)**.
+This repository contains solutions to various assignments completed during the Operating Systems course, demonstrating proficiency in process management, synchronization, and inter-process communication using C programming on a Linux environment.
 
 ---
 
@@ -47,3 +47,8 @@ A philosopher may eat only if both forks are free. The current state is printed 
 `Philosopher state: O X o o O` (`O` – thinking, `o` – waiting, `X` – eating)
 
 ---
+## Technologies Used
+
+- C (POSIX, pthreads, signals)  
+- Debian 12 / Linux  
+- VMware Workstation
